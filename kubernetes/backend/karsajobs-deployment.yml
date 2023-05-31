@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: karsajobs
+  labels:
+    app: backend
+    tier: app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      tier: app
+  template:
+    metadata:
+      labels:
+        app: backend
+        tier: app
+    spec:
+      containers:
+      - name: karsajobs-backend
+        image: teguhy2910/karsajobs:latest
+        ports:
+          - containerPort: 8080
+        env:
+          - name: APP_PORT
+            value: "8080"
+          - name: MONGO_HOST            
+            value: mongodb-service
+          - name: MONGO_ROOT_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mongo-credentials
+                key:  MONGO_ROOT_USERNAME
+          - name: MONGO_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mongo-credentials
+                key: MONGO_ROOT_PASSWORD

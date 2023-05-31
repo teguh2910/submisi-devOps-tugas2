@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+  labels:
+    app: mongodb
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: mongodb
+    tier: backend
+  clusterIP: None
