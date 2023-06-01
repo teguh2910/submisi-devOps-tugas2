@@ -1,1 +1,2 @@
-https://hub.docker.com/repositories/teguhy2910
+https://hub.docker.com/repository/docker/teguhy2910/karsajobs-ui/general
+https://hub.docker.com/repository/docker/teguhy2910/karsajobs/general
