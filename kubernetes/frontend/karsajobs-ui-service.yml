@@ -6,6 +6,6 @@ metadata:
     app: frontend
 spec:
   ports:
-  - port: 3636
+  - port: 8000
   selector:
     tier: app
