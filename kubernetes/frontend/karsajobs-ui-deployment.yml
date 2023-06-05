@@ -20,7 +20,7 @@ spec:
       - name: karsajobs-frontend
         image: teguhy2910/karsajobs-ui:latest
         ports:
-          - containerPort: 3636
+          - containerPort: 8000
         env:
           - name: APP_PORT
-            value: "3636"
+            value: "8000"
