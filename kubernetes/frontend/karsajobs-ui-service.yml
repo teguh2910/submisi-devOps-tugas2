@@ -5,7 +5,9 @@ metadata:
   labels:
     app: frontend
 spec:
+  type: NodePort
   ports:
   - port: 8000
+    targetPort: 8000
   selector:
     tier: app

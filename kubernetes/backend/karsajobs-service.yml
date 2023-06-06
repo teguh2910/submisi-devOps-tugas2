@@ -5,7 +5,9 @@ metadata:
   labels:
     app: backend
 spec:
+  type: NodePort
   ports:
   - port: 8080
+    targetPort: 8080
   selector:
     tier: app

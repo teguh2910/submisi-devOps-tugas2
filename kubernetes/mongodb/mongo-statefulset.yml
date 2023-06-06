@@ -10,7 +10,7 @@ spec:
       app: mongodb
       tier: backend
   serviceName: mongodb
-  replicas: 2
+  replicas: 1
   minReadySeconds: 10
   template:
     metadata:
@@ -20,7 +20,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 10
       containers:
-      - image: mongodb:latest
+      - image: mongo:4.4
         name: mongodb
         env:
         - name: MONGO_ROOT_PASSWORD
@@ -50,4 +50,10 @@ spec:
       volumes:
       - name: mongodb-persistent-storage
         persistentVolumeClaim:
-          claimName: mongodb-pv-claim
+          claimName: mongo-pv-claim
+      - name: config-map
+        configMap:
+          name: mongo-config
+      - name: secret
+        secret:
+          secretName: mongo-credentials
