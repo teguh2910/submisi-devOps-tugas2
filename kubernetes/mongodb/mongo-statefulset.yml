@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: mongodb
-      tier: backend
+      tier: app
   serviceName: mongodb
   replicas: 1
   minReadySeconds: 10
@@ -16,11 +16,11 @@ spec:
     metadata:
       labels:
         app: mongodb
-        tier: backend
+        tier: app
     spec:
       terminationGracePeriodSeconds: 10
       containers:
-      - image: mongo:4.4
+      - image: mongo
         name: mongodb
         env:
         - name: MONGO_ROOT_PASSWORD
